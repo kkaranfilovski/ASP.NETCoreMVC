@@ -3,12 +3,12 @@
     public class Burger
     {
         public string Name { get; set; }
-        public int Price { get; set; }
+        public decimal Price { get; set; }
         public bool IsVegetarian { get; set; }
         public bool IsVegan { get; set; }
         public bool HasFries { get; set; }
 
-        public Burger(string name, int price, bool isVege, bool isVegan, bool hasFries)
+        public Burger(string name, decimal price, bool isVege, bool isVegan, bool hasFries)
         {
             Name = name;
             Price = price;
