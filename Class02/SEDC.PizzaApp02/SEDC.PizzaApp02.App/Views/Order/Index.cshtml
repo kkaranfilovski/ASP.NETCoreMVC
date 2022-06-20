@@ -1,0 +1,27 @@
+﻿@model List<OrderListViewModel>
+
+<h1>ORDER DETAILS</h1>
+<table class="table">
+    <tr>
+        <th>
+            Pizza Name
+        </th>
+        <th>
+            User
+        </th>
+    </tr>
+
+    <tbody>
+        @foreach (var order in @Model)
+        {
+            <tr>
+                <td>@order.PizzaName</td>
+                <td>@order.UserFullName</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+
+

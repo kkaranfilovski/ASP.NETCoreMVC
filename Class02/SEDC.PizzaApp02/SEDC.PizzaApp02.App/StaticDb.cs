@@ -1,4 +1,5 @@
 ﻿using SEDC.PizzaApp02.App.Models.Domain;
+using SEDC.PizzaApp02.App.Models.Enums;
 
 namespace SEDC.PizzaApp02.App
 {
@@ -28,6 +29,42 @@ namespace SEDC.PizzaApp02.App
                 Name = "Vege",
                 Price = 100,
                 IsOnPromotion = true
+            },
+        };
+
+        public static List<User> Users = new()
+        {
+            new User()
+            {
+                Id = 1,
+                FirstName = "Bob",
+                LastName = "Bobsky",
+                Address = "Bob Street 22"
+            },
+            new User()
+            {
+                Id = 2,
+                FirstName = "Jill",
+                LastName = "Wayne",
+                Address = "Jill Street 23"
+            },
+        };
+
+        public static List<Order> Orders = new()
+        {
+            new Order()
+            {
+                Id = 1,
+                User = Users.First(),
+                Pizza = Pizzas.Last(),
+                PaymentMethod = PaymentMethod.Card
+            },
+            new Order()
+            {
+                Id = 2,
+                User = Users.Last(),
+                Pizza = Pizzas.First(),
+                PaymentMethod = PaymentMethod.Cash
             },
         };
     }
