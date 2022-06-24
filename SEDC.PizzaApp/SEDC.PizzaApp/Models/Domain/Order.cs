@@ -1,6 +1,6 @@
-﻿using SEDC.PizzaApp02.App.Models.Enums;
+﻿using SEDC.PizzaApp.Models.Enums;
 
-namespace SEDC.PizzaApp02.App.Models.Domain
+namespace SEDC.PizzaApp.Models.Domain
 {
     public class Order
     {

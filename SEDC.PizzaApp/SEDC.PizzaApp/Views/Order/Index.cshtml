@@ -1,0 +1,25 @@
+﻿@model List<OrderListViewModel>
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <tr>
+        <th scope="col">Pizza Name</th>
+        <th scope="col">User</th>
+        <th scope="col">Details</th>
+    </tr>
+
+    <tbody>
+        @foreach (var order in @Model)
+        {
+            <tr>
+                <td scope="col">@order.PizzaName</td>
+                <td scope="col">@order.UserFullName</td>
+                <td scope="col"><a href="@Url.Action("details", "order")/@order.Id">More info</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h4>@ViewData["Message"]</h4>
+<h4>@ViewData["FirstUser"]</h4>

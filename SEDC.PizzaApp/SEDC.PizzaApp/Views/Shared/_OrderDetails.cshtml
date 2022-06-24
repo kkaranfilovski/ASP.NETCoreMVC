@@ -1,0 +1,35 @@
+﻿@model OrderDetailsViewModel
+
+@{
+    string status = String.Empty;
+
+    if (Model.Isdelivered)
+    {
+        status = "Delivered";
+    }
+    else
+    {
+        status = "Not delivered";
+    }
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Pizza Name</td>
+            <td>User name</td>
+            <td>Payment method</td>
+            <td>Price</td>
+            <td>Status</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.PizzaName</td>
+            <td>@Model.UserName</td>
+            <td>@Model.PaymentMethod</td>
+            <td>@Model.Price</td>
+            <td>@status</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SEDC.PizzaApp02.App.Helpers;
-using SEDC.PizzaApp02.App.Models.Domain;
-using SEDC.PizzaApp02.App.Models.ViewModels;
+using SEDC.PizzaApp.Helpers;
+using SEDC.PizzaApp.Models.Domain;
+using SEDC.PizzaApp.Models.ViewModels;
 
-namespace SEDC.PizzaApp02.App.Controllers
+namespace SEDC.PizzaApp.Controllers
 {
     public class OrderController : Controller
     {
         public IActionResult Index()
-        {          
+        {
             List<Order> ordersFromDb = StaticDb.Orders;
             List<OrderListViewModel> orderListViewModel = ordersFromDb
                                                     .Select(x => x.MapToOrderListViewModel())
@@ -23,7 +23,7 @@ namespace SEDC.PizzaApp02.App.Controllers
         public IActionResult Details(int? id)
         {
             var order = StaticDb.Orders.SingleOrDefault(x => x.Id == id);
-            if(order == null)
+            if (order == null)
             {
                 return NotFound();
             }

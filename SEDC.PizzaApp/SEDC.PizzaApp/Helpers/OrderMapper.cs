@@ -1,7 +1,7 @@
-﻿using SEDC.PizzaApp02.App.Models.Domain;
-using SEDC.PizzaApp02.App.Models.ViewModels;
+﻿using SEDC.PizzaApp.Models.Domain;
+using SEDC.PizzaApp.Models.ViewModels;
 
-namespace SEDC.PizzaApp02.App.Helpers
+namespace SEDC.PizzaApp.Helpers
 {
     public static class OrderMapper
     {
@@ -9,6 +9,7 @@ namespace SEDC.PizzaApp02.App.Helpers
         {
             return new OrderListViewModel
             {
+                Id = order.Id,
                 PizzaName = order.Pizza.Name,
                 UserFullName = $"{order.User.FirstName} {order.User.LastName}"
             };
@@ -22,9 +23,8 @@ namespace SEDC.PizzaApp02.App.Helpers
                 UserName = $"{order.User.FirstName} {order.User.LastName}",
                 PaymentMethod = order.PaymentMethod,
                 Price = order.Pizza.Price,
-                Isdelivered = order.IsDelivered     
+                Isdelivered = order.IsDelivered
             };
         }
-
     }
 }
