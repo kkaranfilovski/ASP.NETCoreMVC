@@ -12,9 +12,9 @@
     <tbody>
         @foreach (var order in @Model)
         {
-            <tr>
-                <td scope="col">@order.PizzaName</td>
-                <td scope="col">@order.UserFullName</td>
+            <tr href="@Url.Action("details", "order")/@order.Id">
+                <td scope="col" href="@Url.Action("details", "order")/@order.Id">@order.PizzaName</td>
+                <td scope="col" href="@Url.Action("details", "order")/@order.Id">@order.UserFullName</td>
                 <td scope="col"><a href="@Url.Action("details", "order")/@order.Id">More info</a></td>
             </tr>
         }
