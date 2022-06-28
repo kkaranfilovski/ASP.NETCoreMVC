@@ -1,0 +1,22 @@
+﻿@model Order
+
+<form asp-action="Create" asp-controller="Order" method="post">
+    <div class="form-group">
+        <label class="form-label" asp-for="FullName">Enter your name</label>
+        <input class="form-control" type="text" asp-for="FullName" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label" asp-for="Address">Enter your address</label>
+        <input class="form-control" type="text" asp-for="Address" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label" asp-for="Burgers">Choose burgers</label>
+        <select class="form-control" asp-for="Burgers" asp-items="@(new SelectList(Model.Burgers, "Id", "Name"))">
+
+        </select>
+    </div>
+
+    <button class="btn btn-outline-primary" type="submit">Create order</button>
+</form>

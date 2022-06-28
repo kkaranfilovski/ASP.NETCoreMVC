@@ -6,7 +6,8 @@ namespace SEDC.BurgerApp.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var burgers = StaticDB.Burgers;
+            return View(burgers);
         }
     }
 }

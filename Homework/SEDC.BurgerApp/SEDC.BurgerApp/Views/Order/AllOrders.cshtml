@@ -1,0 +1,24 @@
+﻿@model List<OrderListViewModel>
+
+<h3>Orders</h3>
+
+<table class="table">
+    <tr>
+        <th scope="col" class="text-center">#</th>
+        <th scope="col" class="text-center">User</th>
+        <th scope="col" class="text-center">Order Total price</th>
+        <th scope="col" class="text-center">Details</th>
+    </tr>
+
+    <tbody>
+        @foreach (var order in @Model)
+        {
+            <tr>
+                <td scope="col" class="text-center">@order.OrderId</td>
+                <td scope="col" class="text-center">@order.UserFullName</td>
+                <td scope="col" class="text-center">@order.TotalPrice MKD</td>
+                <td scope="col" class="text-center"><a href="@Url.Action("details", "order")/@order.OrderId">More info</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
