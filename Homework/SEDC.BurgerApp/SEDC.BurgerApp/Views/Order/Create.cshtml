@@ -4,23 +4,27 @@
     <div class="form-group">
         <label class="form-label" asp-for="UserFullName">Enter your name</label>
         <input class="form-control" type="text" asp-for="UserFullName" />
+         <span class="text-danger" asp-validation-for="UserFullName"></span>
     </div>
 
     <div class="form-group">
         <label class="form-label" asp-for="Adress">Enter your address</label>
         <input class="form-control" type="text" asp-for="Adress" />
+        <span class="text-danger" asp-validation-for="Adress"></span>
     </div>
 
     <div class="form-group">
         <label class="form-label" asp-for="Location">Enter your Location</label>
-        <input class="form-control" type="text" asp-for="Location" />
+        <input class="form-control" type="text" asp-for="Location"  />
+         <span class="text-danger" asp-validation-for="Location"></span>
     </div>
 
     <div class="form-group">
         <label class="form-label" asp-for="BurgerId">Choose burgers</label>
-        <select class="form-control" asp-for="BurgerId" asp-items="@(new MultiSelectList(ViewBag.Burgers, "Id", "Name"))">
-
+        <select  class="form-control" asp-for="BurgerId" asp-items="@(new MultiSelectList(ViewBag.Burgers, "Id", "Name"))">
+            <option selected disabled>Select burgers</option>
         </select>
+         <span class="text-danger" asp-validation-for="BurgerId"></span>
     </div>
 
     <button class="btn btn-outline-primary" type="submit">Create order</button>

@@ -45,13 +45,16 @@ namespace SEDC.BurgerApp.Controllers
         [HttpPost]
         public IActionResult Create(OrderViewModel orderViewModel)
         {
+            ViewBag.Burgers = StaticDB.Burgers
+                .Select(x => x.MapToBurgerSelectViewModel()).ToList();
+
             if (ModelState.IsValid)
             {
                 StaticDB.Orders.Add(orderViewModel.MapToOrder());
                 return RedirectToAction("AllOrders");
             }
 
-            return View(orderViewModel);
+            return View();
         }
     }
 }
