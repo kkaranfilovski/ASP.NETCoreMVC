@@ -42,14 +42,27 @@ namespace SEDC.BurgerApp.Helpers
             };
         }
 
-        public static Order MapToCreateOrder(this Order order)
+        public static OrderViewModel MapToCreateOrder(this Order order)
         {
-            var burgers = StaticDB.Burgers;
-
-            return new Order
+            return new OrderViewModel
             {
-                Burgers = burgers
+                UserFullName = order.FullName,
+                Adress = order.Address,
+                Location = order.Location,
             };
+        }
+
+        public static Order MapToOrder(this OrderViewModel orderViewModel)
+        {
+            var burgersFromDb = new List<Burger>();
+            foreach(var id in orderViewModel.BurgerId)
+            {
+                var burger = StaticDB.Burgers.FirstOrDefault(x => x.Id == id);
+                burgersFromDb.Add(burger);
+            }
+
+            var order = new Order(orderViewModel.UserFullName, orderViewModel.Adress, false, burgersFromDb, orderViewModel.Location);
+            return order;
         }
     }
 }

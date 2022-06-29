@@ -1,19 +1,24 @@
-﻿@model Order
+﻿@model OrderViewModel
 
 <form asp-action="Create" asp-controller="Order" method="post">
     <div class="form-group">
-        <label class="form-label" asp-for="FullName">Enter your name</label>
-        <input class="form-control" type="text" asp-for="FullName" />
+        <label class="form-label" asp-for="UserFullName">Enter your name</label>
+        <input class="form-control" type="text" asp-for="UserFullName" />
     </div>
 
     <div class="form-group">
-        <label class="form-label" asp-for="Address">Enter your address</label>
-        <input class="form-control" type="text" asp-for="Address" />
+        <label class="form-label" asp-for="Adress">Enter your address</label>
+        <input class="form-control" type="text" asp-for="Adress" />
     </div>
 
     <div class="form-group">
-        <label class="form-label" asp-for="Burgers">Choose burgers</label>
-        <select class="form-control" asp-for="Burgers" asp-items="@(new SelectList(Model.Burgers, "Id", "Name"))">
+        <label class="form-label" asp-for="Location">Enter your Location</label>
+        <input class="form-control" type="text" asp-for="Location" />
+    </div>
+
+    <div class="form-group">
+        <label class="form-label" asp-for="BurgerId">Choose burgers</label>
+        <select class="form-control" asp-for="BurgerId" asp-items="@(new MultiSelectList(ViewBag.Burgers, "Id", "Name"))">
 
         </select>
     </div>

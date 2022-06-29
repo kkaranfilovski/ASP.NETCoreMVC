@@ -2,12 +2,14 @@
 
 <h3>Pick one of the following options</h3>
 
-<a asp-action="AllOrders">
-    1. View all orders
-</a>
-<a asp-action="Create">
-    2. Create new order
-</a>
-<a asp-action="Edit">
-    3. Edit an order
-</a>
+<<nav class="nav flex-column">
+    <a class="nav-link" asp-action="AllOrders">
+        1. View all orders
+    </a>
+    <a class="nav-link" asp-action="Create">
+        2. Create new order
+    </a>
+    <a class="nav-link" asp-action="Edit">
+        3. Edit an order
+    </a>
+</nav>
