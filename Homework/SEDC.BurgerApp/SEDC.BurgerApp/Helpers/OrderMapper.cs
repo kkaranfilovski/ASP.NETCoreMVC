@@ -42,13 +42,13 @@ namespace SEDC.BurgerApp.Helpers
             };
         }
 
-        public static OrderViewModel MapToCreateOrder(this Order order)
+        public static OrderViewModel MapToOrderViewModel(this Order order)
         {
             return new OrderViewModel
             {
                 UserFullName = order.FullName,
                 Adress = order.Address,
-                Location = order.Location,
+                Location = order.Location
             };
         }
 
@@ -61,7 +61,22 @@ namespace SEDC.BurgerApp.Helpers
                 burgersFromDb.Add(burger);
             }
 
-            var order = new Order(orderViewModel.UserFullName, orderViewModel.Adress, false, burgersFromDb, orderViewModel.Location);
+            var orderId = StaticDB.Orders.Count + 1;
+
+            var order = new Order(orderId, orderViewModel.UserFullName, orderViewModel.Adress, false, burgersFromDb, orderViewModel.Location);
+            return order;
+        }
+
+        public static Order MapToOrder(this OrderViewModel orderViewModel, int orderId)
+        {
+            var burgersFromDb = new List<Burger>();
+            foreach (var id in orderViewModel.BurgerId)
+            {
+                var burger = StaticDB.Burgers.FirstOrDefault(x => x.Id == id);
+                burgersFromDb.Add(burger);
+            }
+
+            var order = new Order(orderId, orderViewModel.UserFullName, orderViewModel.Adress, false, burgersFromDb, orderViewModel.Location);
             return order;
         }
     }

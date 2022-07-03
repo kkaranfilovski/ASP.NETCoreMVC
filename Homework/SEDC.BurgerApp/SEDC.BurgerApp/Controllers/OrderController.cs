@@ -56,5 +56,46 @@ namespace SEDC.BurgerApp.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            ViewBag.Burgers = StaticDB.Burgers
+                .Select(x => x.MapToBurgerSelectViewModel()).ToList();
+
+            var selectedBurgers = new List<Burger>(); 
+            var order = StaticDB.Orders.SingleOrDefault(x => x?.Id == id);
+            var editViewModel = order.MapToOrderViewModel();
+            return View(editViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(OrderViewModel order)
+        {
+            if(ModelState.IsValid)
+            {
+                var orderFromDb = StaticDB.Orders.SingleOrDefault(x => x.Id == order.Id);
+                var index = StaticDB.Orders.IndexOf(orderFromDb);
+                var editedOrder = order.MapToOrder(order.Id);
+                StaticDB.Orders[index] = editedOrder;
+                return RedirectToAction("AllOrders");
+            }
+            ViewBag.ErrorMessage = "Order update failed";
+            return View();
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var order = StaticDB.Orders.FirstOrDefault(x => x.Id == id);
+            var model = order.MapToOrderDetailsViewModel();
+            return View(model);
+        }
+
+        public IActionResult ConfirmDelete(int id)
+        {
+            var order = StaticDB.Orders.SingleOrDefault(x => x.Id == id);
+            StaticDB.Orders.Remove(order);
+            return RedirectToAction("AllOrders");
+        }
     }
 }

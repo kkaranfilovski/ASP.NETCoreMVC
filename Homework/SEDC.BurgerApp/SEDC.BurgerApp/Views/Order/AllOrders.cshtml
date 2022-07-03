@@ -8,6 +8,8 @@
         <th scope="col" class="text-center">User</th>
         <th scope="col" class="text-center">Order Total price</th>
         <th scope="col" class="text-center">Details</th>
+        <th scope="col" class="text-center">Edit</th>
+        <th scope="col" class="text-center">Delete</th>
     </tr>
 
     <tbody>
@@ -18,7 +20,11 @@
                 <td scope="col" class="text-center">@order.UserFullName</td>
                 <td scope="col" class="text-center">@order.TotalPrice MKD</td>
                 <td scope="col" class="text-center"><a href="@Url.Action("details", "order")/@order.OrderId">More info</a></td>
+                <td scope="col" class="text-center"><a href="@Url.Action("edit", "order")/@order.OrderId">Edit</a></td>
+                <td scope="col" class="text-center"><a href="@Url.Action("delete", "order")/@order.OrderId">Delete</a></td>
             </tr>
         }
     </tbody>
 </table>
+
+<a class="btn btn-primary" asp-action="Index">Back</a>

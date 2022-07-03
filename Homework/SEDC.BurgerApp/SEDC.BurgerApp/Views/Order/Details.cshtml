@@ -18,14 +18,12 @@
             <td scope="col" class="align-middle text-center">@Model.Address</td>
             <td scope="col" class="align-middle text-center">@foreach (var name in Model.Burgers)
                                                 {
-                                                    <p>@name</p>
+                                                    <span>@name </span>
                                                 }</td>
             <td scope="col" class="align-middle text-center">@(Model.status ? "delivered" : "not delivered")</td>
-
         </tr>
 
     </tbody>
 </table>
 
-<a class="btn btn-primary" asp-action="AllOrders">Back to orders</a>
-<a class="btn btn-primary" asp-action="Index" asp-controller="Home">back to home</a>
+<a class="btn btn-primary" asp-action="AllOrders">Back</a>

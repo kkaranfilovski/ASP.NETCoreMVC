@@ -2,7 +2,6 @@
 {
     public class Order
     {
-        private static int IdCounter { get; set; } = 0;
         public int Id { get; set; }
         public string FullName { get; set; }
         public string Address { get; set; }
@@ -15,9 +14,9 @@
 
         }
 
-        public Order(string fullName, string address, bool isDelivered, List<Burger> burgers, string location)
+        public Order(int id, string fullName, string address, bool isDelivered, List<Burger> burgers, string location)
         {
-            Id = IdCounter += 1;
+            Id = id;
             FullName = fullName;
             Address = address;
             IsDelivered = isDelivered;

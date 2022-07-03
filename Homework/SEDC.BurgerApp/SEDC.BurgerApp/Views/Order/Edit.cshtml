@@ -1,0 +1,33 @@
+﻿@model OrderViewModel
+
+<form asp-action="Edit" asp-controller="Order" method="post">
+    <div class="form-group">
+        <label class="form-label" asp-for="UserFullName">Enter your name</label>
+        <input class="form-control" type="text" asp-for="UserFullName" value="@Model.UserFullName"/>
+         <span class="text-danger" asp-validation-for="UserFullName"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label" asp-for="Adress">Enter your address</label>
+        <input class="form-control" type="text" asp-for="Adress" value="@Model.Adress"/>
+        <span class="text-danger" asp-validation-for="Adress"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label" asp-for="Location">Enter your Location</label>
+        <input class="form-control" type="text" asp-for="Location"  value="@Model.Location"/>
+         <span class="text-danger" asp-validation-for="Location"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label" asp-for="BurgerId">Choose burgers</label>
+        <select  class="form-control" asp-for="BurgerId" asp-items="@(new MultiSelectList(ViewBag.Burgers, "Id", "Name", ViewBag.SelectedBurgers))">
+            
+        </select>
+         <span class="text-danger" asp-validation-for="BurgerId"></span>
+    </div>
+
+    <button class="btn btn-outline-primary" type="submit">Edit order</button>
+</form>
+
+    <p class="text-danger">@ViewBag.ErrorMessage</p>
