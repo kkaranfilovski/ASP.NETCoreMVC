@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SEDC.PizzaApp.Domain\SEDC.PizzaApp.Domain.csproj" />
-    <ProjectReference Include="..\SEDC.PizzaApp.ViewModels\SEDC.PizzaApp.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

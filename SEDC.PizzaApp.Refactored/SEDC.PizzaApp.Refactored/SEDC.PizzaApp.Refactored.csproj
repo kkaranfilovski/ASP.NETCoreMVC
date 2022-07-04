@@ -7,8 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SEDC.PizzaApp.Helpers\SEDC.PizzaApp.Helpers.csproj" />
+    <ProjectReference Include="..\SEDC.PizzaApp.Mappers\SEDC.PizzaApp.Mappers.csproj" />
+    <ProjectReference Include="..\SEDC.PizzaApp.Services\SEDC.PizzaApp.Services.csproj" />
+    <ProjectReference Include="..\SEDC.PizzaApp.ViewModels\SEDC.PizzaApp.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>
